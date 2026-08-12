@@ -1,0 +1,38 @@
+######## https://api.live.bilibili.com/room/v1/Room/get_info?room_id=<true room id>
+# backup: https://uapis.cn/api/v1/social/bilibili/liveroom?room_id=xxxx
+
+{"code":0,"msg":"ok","message":"ok",
+"data":
+{"uid":6639802,"room_id":12265,"short_id":404,"attention":575491,"online":0,"is_portrait":false,
+"description":"舰长可以点播一局当前在玩的游戏！\n歌单网易云：Bili陈哥\n粉丝群QQ 群\n陈哥小蜗居1：361992617 / 陈哥伊甸园2：527320722 / 陈哥玫瑰村3：326062130 /直播通知群1：1076799837/直播通知群2：609649238/直播通知群3：127409033/\n直播通知群4：750712067",
+"live_status":0,"area_id":219,"parent_area_id":6,"parent_area_name":"单机游戏","old_area_id":1,
+"background":"https://i0.hdslb.com/bfs/live/room_bg/2aa4a44fd73e5d68eb9acdafe54c391d60937620.jpg",
+"title":"以撒新手最多的直播间",
+"user_cover":"https://i0.hdslb.com/bfs/live/new_room_cover/7ae4bcffd9e9fb14d7405cf92a1713e34f2f662c.jpg","keyframe":"","is_strict_room":false,
+"live_time":"0000-00-00 00:00:00","tags":"以撒,单机游戏,独立游戏,Roguelike,陈哥","is_anchor":0,"room_silent_type":"","room_silent_level":0,"room_silent_second":0,"area_name":"以撒","pendants":"","area_pendants":"",
+"hot_words":["2333333","喂，妖妖零吗","红红火火恍恍惚惚","FFFFFFFFFF","Yooooooo","啪啪啪啪啪","666666666","老司机带带我","你为什么这么熟练啊","gg","prprpr","向大佬低头","请大家注意弹幕礼仪哦！","还有这种操作！","囍","打call","你气不气？","队友呢？"],"hot_words_status":0,"verify":"",
+"new_pendants":{"frame":{"name":"直播姬十周年纪念头像框","value":"https://i0.hdslb.com/bfs/live/8ec10c4a6a5c6e4d2baa006467b722fbca03d9f2.png","position":0,"desc":"","area":0,"area_old":0,"bg_color":"","bg_pic":"","use_old_area":false},"badge":{"name":"v_person","position":3,"value":"","desc":"bilibili 知名游戏UP主、直播高能主播"},"mobile_frame":{"name":"直播姬十周年纪念头像框","value":"https://i0.hdslb.com/bfs/live/8ec10c4a6a5c6e4d2baa006467b722fbca03d9f2.png","position":0,"desc":"","area":0,"area_old":0,"bg_color":"","bg_pic":"","use_old_area":false},"mobile_badge":null},"up_session":"","pk_status":0,"pk_id":0,"battle_id":0,"allow_change_area_time":0,"allow_upload_cover_time":0,"studio_info":{"status":0,"master_list":[]}}}
+
+
+{"code":0,"msg":"ok","message":"ok","data":
+{"uid":20060869,"room_id":21532815,"short_id":0,"attention":52513,"online":49405,"is_portrait":false,
+"description":"",
+"live_status":1,"area_id":433,"parent_area_id":6,"parent_area_name":"单机游戏","old_area_id":1,
+"background":"",
+"title":"【街霸6】宝神开播了？",
+"user_cover":"https://i0.hdslb.com/bfs/live/new_room_cover/c6eb7df4f0fb4df99145173bf61eaa84d856e83d.jpg","keyframe":"https://i0.hdslb.com/bfs/live-key-frame/keyframe08121845000021532815y2ckdb.jpg","is_strict_room":false,
+"live_time":"2026-08-12 18:31:18","tags":"街霸5,SFV,格斗游戏,街头霸王,Vxbao,街霸6,SF6,街霸小宝","is_anchor":0,"room_silent_type":"","room_silent_level":0,"room_silent_second":0,"area_name":"格斗游戏","pendants":"","area_pendants":"",
+"hot_words":["2333333","喂，妖妖零吗","红红火火恍恍惚惚","FFFFFFFFFF","Yooooooo","啪啪啪啪啪","666666666","老司机带带我","你为什么这么熟练啊","gg","prprpr","向大佬低头","请大家注意弹幕礼仪哦！","还有这种操作！","囍","打call","你气不气？","队友呢？"],"hot_words_status":0,"verify":"",
+"new_pendants":{"frame":{"name":"百人舰队主播头像","value":"https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png","position":0,"desc":"","area":0,"area_old":0,"bg_color":"","bg_pic":"","use_old_area":false},"badge":{"name":"v_company","position":3,"value":"","desc":"BLG电子竞技俱乐部街霸职业选手"},"mobile_frame":{"name":"百人舰队主播头像","value":"https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png","position":0,"desc":"","area":0,"area_old":0,"bg_color":"","bg_pic":"","use_old_area":false},"mobile_badge":null},"up_session":"729522803954978959","pk_status":0,"pk_id":0,"battle_id":0,"allow_change_area_time":0,"allow_upload_cover_time":0,"studio_info":{"status":0,"master_list":[]}}}
+
+
+{"code":0,"msg":"ok","message":"ok","data":
+{"uid":135211550,"room_id":23360167,"short_id":0,"attention":28343,"online":0,"is_portrait":false,
+"description":"群公告\n直播时间\n周二到周六:\n中午12:00-15:00 开播街霸6。\n下午15:00-18:00 开播怪物猎人\n周五周六:      \n晚上18:00加班街霸舰长房\n周天随机开播小游戏\n每周一固定休息\n第一次开通满三个月（主播纯手工娃娃和手工饼干一份）\n第二次开通满三个月（主播精挑超可爱小鸭子夜灯）\n第三次开通满三个月暂定陶瓷\n首月开提督会收到不低于300的提督礼物。后续每个月提督礼物都会专门定制，保证珍贵，彰显对提督的重视\n支持一下全职个人主播吧，拜托拜托[给心心]",
+"live_status":2,"area_id":874,"parent_area_id":3,"parent_area_name":"手游","old_area_id":12,
+"background":"",
+"title":"（露脸）萌新玩鸣潮主线2.5",
+"user_cover":"https://i0.hdslb.com/bfs/live/user_cover/d94f314fdace165a81c8046369d28d595604a265.jpg","keyframe":"","is_strict_room":false,
+"live_time":"0000-00-00 00:00:00","tags":"单机游戏,steam,动作游戏,搞笑,魂游,格斗游戏,女主播,类魂游,街霸6,街头霸王6,升龙,冒险游戏","is_anchor":0,"room_silent_type":"","room_silent_level":0,"room_silent_second":0,"area_name":"鸣潮","pendants":"","area_pendants":"",
+"hot_words":["2333333","喂，妖妖零吗","红红火火恍恍惚惚","FFFFFFFFFF","Yooooooo","啪啪啪啪啪","666666666","老司机带带我","你为什么这么熟练啊","gg","prprpr","向大佬低头","请大家注意弹幕礼仪哦！","还有这种操作！","囍","打call","你气不气？","队友呢？"],"hot_words_status":0,"verify":"",
+"new_pendants":{"frame":{"name":"直播姬十周年纪念头像框","value":"https://i0.hdslb.com/bfs/live/8ec10c4a6a5c6e4d2baa006467b722fbca03d9f2.png","position":0,"desc":"","area":0,"area_old":0,"bg_color":"","bg_pic":"","use_old_area":false},"badge":{"name":"v_person","position":3,"value":"","desc":"bilibili独家高能主播"},"mobile_frame":{"name":"直播姬十周年纪念头像框","value":"https://i0.hdslb.com/bfs/live/8ec10c4a6a5c6e4d2baa006467b722fbca03d9f2.png","position":0,"desc":"","area":0,"area_old":0,"bg_color":"","bg_pic":"","use_old_area":false},"mobile_badge":null},"up_session":"","pk_status":0,"pk_id":0,"battle_id":0,"allow_change_area_time":0,"allow_upload_cover_time":0,"studio_info":{"status":0,"master_list":[]}}}

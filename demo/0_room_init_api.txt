@@ -1,0 +1,9 @@
+###### https://api.live.bilibili.com/room/v1/Room/room_init?id=<short id <- input roomId param>
+
+success
+
+{"code":0,"msg":"ok","message":"ok","data":{"room_id":12265,"short_id":404,"uid":6639802,"need_p2p":0,"is_hidden":false,"is_locked":false,"is_portrait":false,"live_status":0,"hidden_till":0,"lock_till":0,"encrypted":false,"pwd_verified":false,"live_time":-62170012800,"room_shield":1,"is_sp":0,"special_type":0}}
+
+failed
+
+{"code":0,"data":{"list":null},"message":"","msg":""}

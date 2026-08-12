@@ -1,0 +1,17 @@
+###### https://api.live.bilibili.com/live_user/v1/Master/info?uid=<uid>
+## backup: https://uapis.cn/api/v1/social/bilibili/userinfo?uid=xxxx
+
+
+{"code":0,"msg":"","message":"",
+"data":
+{"info":{
+    "uid":6639802,"uname":"陈哥1",
+    "face":"https://i1.hdslb.com/bfs/face/4b25f1de41bc2f2a3c03155d3f4e19aacc9e2916.jpg",
+    "official_verify":{"type":0,"desc":"bilibili个人认证:bilibili 知名游戏UP主、直播高能主播"},
+    "gender":1
+    },
+    "exp":{"master_level":{"level":40,"color":16746162,"current":[0,147013810],"next":[0,147013810]}},
+    "follower_num":575492,
+    "room_id":12265,"medal_name":"萌陈",
+    "glory_count":11,"pendant":"https://i0.hdslb.com/bfs/live/8ec10c4a6a5c6e4d2baa006467b722fbca03d9f2.png","link_group_num":0,
+    "room_news":{"content":"直播通知群1：1076799837   直播通知群2:609649238   直播通知群3:127409033   直播通知群4:750712067   通知群5：942143151","ctime":"2024-12-17 21:03:06","ctime_text":"2024-12-17"}}}
