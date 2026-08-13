@@ -113,15 +113,15 @@ void RoomWidget::setupConnections()
 void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
 {
     for (const Danmaku& danmaku: danmakus) {
+        if(m_receivedIds.size() > 10000) {  // about 320 KB
+            m_receivedIds.clear();
+            m_danmakuList->clear();         // todo: amount limited, but need to store into sql
+        }
         if (m_livingStartTime > danmaku.time || m_receivedIds.contains(danmaku.id)) {
             continue;
         }
         // qDebug() << "[ " << m_livingStartTime.toString("yyyy-MM-dd hh:mm:ss") << ", " << danmaku.time.toString("yyyy-MM-dd hh:mm:ss") << " ]";
         m_receivedIds.insert(danmaku.id);  // danmaku id_str
-
-        if(m_receivedIds.size() > 10000) {  // about 320 KB
-            m_receivedIds.clear();
-        }
 
         QString item {
             QString("[%1] %2: %3")
@@ -130,7 +130,7 @@ void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
                     danmaku.text)
         };
 
-        m_danmakuList->addItem(item);  // todo: need amount limited also
+        m_danmakuList->addItem(item);
         m_danmakuList->scrollToBottom();
     }
 }
