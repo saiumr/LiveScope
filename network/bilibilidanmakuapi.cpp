@@ -65,7 +65,7 @@ Danmaku BilibiliDanmakuApi::parseDanmaku(const QJsonObject &object, const QStrin
     danmaku.roomId          = roomId;
     if (!isSc) {
         danmaku.id          = object["id_str"].toString();
-        danmaku.isAdmin     = (object["is_admin"] == "1");
+        danmaku.isAdmin     = (object["isadmin"].toInt() == 1);
         danmaku.isSc        = false;
         danmaku.nickname    = object["nickname"].toString();
         danmaku.text        = object["text"].toString();

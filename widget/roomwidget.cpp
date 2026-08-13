@@ -113,15 +113,15 @@ void RoomWidget::setupConnections()
 void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
 {
     for (const Danmaku& danmaku: danmakus) {
+        if (m_livingStartTime > danmaku.time || m_receivedIds.contains(danmaku.id)) {
+            continue;
+        }
+        // qDebug() << "[ " << m_livingStartTime.toString("yyyy-MM-dd hh:mm:ss") << ", " << danmaku.time.toString("yyyy-MM-dd hh:mm:ss") << " ]";
+        m_receivedIds.insert(danmaku.id);  // danmaku id_str
+
         if(m_receivedIds.size() > 10000) {  // about 320 KB
             m_receivedIds.clear();
         }
-
-        if (m_receivedIds.contains(danmaku.id)) {
-            continue;
-        }
-
-        m_receivedIds.insert(danmaku.id);  // danmaku id_str
 
         QString item {
             QString("[%1] %2: %3")
@@ -137,6 +137,7 @@ void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
 
 void RoomWidget::onLiveRoomReceived(const LiveRoom &room)
 {
+    m_livingStartTime = room.liveTime;
     m_titleLabel->setText(QString(R"(
         <a style="color:#FFFFFF; text-decoration:none;"
         href="https://live.bilibili.com/%1"> [%2] </a>)").arg(room.roomId, room.title));

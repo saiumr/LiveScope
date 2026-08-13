@@ -33,6 +33,12 @@ void BilibiliLiveApi::getLiveRoomInfo(const QString &roomId)
         room.uid = QString::number(static_cast<qlonglong>(obj["uid"].toDouble()));
         room.roomId = QString::number(static_cast<qlonglong>(obj["room_id"].toDouble()));
         room.title = obj["title"].toString();
+        room.liveTime = QDateTime::fromString(
+            obj["live_time"].toString(),
+            "yyyy-MM-dd hh:mm:ss"
+        );
+        // qDebug() << obj["live_time"];
+        // qDebug() << room.liveTime.toString("yyyy-MM-dd hh:mm:ss");
         room.description = obj["description"].toString();
         int status { obj["live_status"].toInt() };
         switch (status) {

@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QSet>
 #include <QLabel>
+#include <QDateTime>
 #include "model/Danmaku.h"
 #include "model/LiveRoom.h"
 #include "model/BilibiliUser.h"
@@ -32,6 +33,7 @@ private slots:
 
 private:
     QString                m_roomId;
+    QDateTime              m_livingStartTime;
     BilibiliDanmakuApi*    m_danmakuApi;
     BilibiliLiveApi*       m_liveApi;
     BilibiliUserApi*       m_userApi;
