@@ -18,6 +18,19 @@ RoomWidget::RoomWidget(const QString& roomId, QWidget *parent)
     m_timer->start(kRequestInterval);
 }
 
+bool RoomWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_titleLabel) {
+        if (event->type() == QEvent::Enter) {
+            m_descriptionLabel->setVisible(true);
+        } else if (event->type() == QEvent::Leave) {
+            m_descriptionLabel->setVisible(false);
+        }
+    }
+
+    return QWidget::eventFilter(watched, event);
+}
+
 void RoomWidget::onUserInfoReceived(const BilibiliUser &user)
 {
     m_streamerLabel->setText(QString(R"(
@@ -92,6 +105,10 @@ void RoomWidget::setupUi()
 
     // danmaku list ui
     m_danmakuList->setWordWrap(true);
+
+    // ui event
+    m_descriptionLabel->setVisible(false);
+    m_titleLabel->installEventFilter(this);
 }
 
 void RoomWidget::setupApi()

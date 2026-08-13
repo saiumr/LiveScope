@@ -7,6 +7,8 @@
 #include <QSet>
 #include <QLabel>
 #include <QDateTime>
+#include <QEvent>
+#include <QFocusFrame>
 #include "model/Danmaku.h"
 #include "model/LiveRoom.h"
 #include "model/BilibiliUser.h"
@@ -21,6 +23,9 @@ class RoomWidget : public QWidget
     Q_OBJECT
 public:
     explicit RoomWidget(const QString& roomId, QWidget *parent = nullptr);
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 signals:
     void roomTitleChanged(const QString& title);
