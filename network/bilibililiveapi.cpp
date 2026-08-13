@@ -31,7 +31,7 @@ void BilibiliLiveApi::getLiveRoomInfo(const QString &roomId)
 
         LiveRoom room;
         room.uid = QString::number(static_cast<qlonglong>(obj["uid"].toDouble()));
-        room.roomId = obj["room_id"].toString();
+        room.roomId = QString::number(static_cast<qlonglong>(obj["room_id"].toDouble()));
         room.title = obj["title"].toString();
         room.description = obj["description"].toString();
         int status { obj["live_status"].toInt() };

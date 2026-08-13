@@ -26,7 +26,7 @@ void BilibiliUserApi::getUserInfo(QString uid)
 
         BilibiliUser user;
         QJsonObject user_info { obj["info"].toObject() };
-        user.uid      = user_info["uid"].toString();
+        user.uid      = QString::number( static_cast<qlonglong>(user_info["uid"].toDouble()) );
         user.name     = user_info["uname"].toString();
         // user.sex      = user_info["gender"].toString();
         user.face_url = user_info["face"].toString();

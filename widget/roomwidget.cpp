@@ -20,7 +20,10 @@ RoomWidget::RoomWidget(const QString& roomId, QWidget *parent)
 
 void RoomWidget::onUserInfoReceived(const BilibiliUser &user)
 {
-    m_streamerLabel->setText(QString(" %1").arg(user.name));
+    m_streamerLabel->setText(QString(R"(
+        <a style="color:#FFFFFF; text-decoration:none;"
+        href="https://space.bilibili.com/%1"> %2</a>)").arg(user.uid, user.name));
+    m_streamerLabel->setOpenExternalLinks(true);
     emit roomTitleChanged(user.name);
 
     QNetworkReply* reply { m_imageManager->get(QNetworkRequest(QUrl(user.face_url))) };
@@ -56,16 +59,22 @@ void RoomWidget::setupUi()
     // ======== ui design ========
     //
     auto mainLayout { new QVBoxLayout(this) };
+    auto topLayout { new QVBoxLayout() };
+    auto firstLine { new QHBoxLayout() };
+
+    // ui layout design
+    mainLayout->addLayout(topLayout);
+    mainLayout->addWidget(m_danmakuList);
+
     // live room top info ui
     m_streamerLabel->setStyleSheet(
         "font-size:16px;font-weight:bold;"
         );
-    auto topLayout { new QVBoxLayout(this) };
-    auto firstLine { new QHBoxLayout(this) };
+    m_streamerLabel->setCursor(Qt::PointingHandCursor);
     m_avatarLabel->setScaledContents(true);
+    m_avatarLabel->setFixedSize(48, 48);
     m_streamerLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_statusLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    m_avatarLabel->setFixedSize(48, 48);
     firstLine->addWidget(m_avatarLabel);
     firstLine->addWidget(m_streamerLabel);
     m_statusIndicator->setFixedSize(10, 10);
@@ -75,15 +84,14 @@ void RoomWidget::setupUi()
     firstLine->addStretch();
     m_descriptionLabel->setWordWrap(true);
     topLayout->addLayout(firstLine);
+    m_titleLabel->setStyleSheet(
+        "font-size:12px; font-weight:bold;"
+        );
     topLayout->addWidget(m_titleLabel);
     topLayout->addWidget(m_descriptionLabel);
 
     // danmaku list ui
     m_danmakuList->setWordWrap(true);
-
-    // main ui design
-    mainLayout->addLayout(topLayout);
-    mainLayout->addWidget(m_danmakuList);
 }
 
 void RoomWidget::setupApi()
@@ -129,7 +137,10 @@ void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
 
 void RoomWidget::onLiveRoomReceived(const LiveRoom &room)
 {
-    m_titleLabel->setText(QString("[%1] ").arg(room.title));
+    m_titleLabel->setText(QString(R"(
+        <a style="color:#FFFFFF; text-decoration:none;"
+        href="https://live.bilibili.com/%1"> [%2] </a>)").arg(room.roomId, room.title));
+    m_titleLabel->setOpenExternalLinks(true);
     m_descriptionLabel->setText(QString("%1").arg(room.description));
 
     switch (room.status) {
