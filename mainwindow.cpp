@@ -63,6 +63,7 @@ void MainWindow::onRoomVerifyOk(QString realRoomId, QString displayName)
     // new tab window
     int index { ui->tabWidget->addTab(roomWidget, realRoomId) };
     m_roomTabs.insert(roomWidget, index);
+    ui->tabWidget->setCurrentIndex(index);
 
     connect(roomWidget, &RoomWidget::roomTitleChanged, this, [this, roomWidget](const QString& title) {
         int index { ui->tabWidget->indexOf(roomWidget) };

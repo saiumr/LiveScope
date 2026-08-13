@@ -123,6 +123,7 @@ void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
         };
 
         m_danmakuList->addItem(item);  // todo: need amount limited also
+        m_danmakuList->scrollToBottom();
     }
 }
 
