@@ -9,6 +9,7 @@
 struct Danmaku
 {
     QString   id;
+    int       userLevel;  // user in living room level
     QString   roomId;
     bool      isAdmin;
     bool      isSc;

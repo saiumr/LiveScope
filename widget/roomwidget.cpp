@@ -1,4 +1,5 @@
 #include "roomwidget.h"
+#include "widget/danmakuitemwidget.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -6,6 +7,7 @@
 #include <QNetworkReply>
 #include <QDesktopServices>
 #include <QMouseEvent>
+#include <QScrollBar>
 
 RoomWidget::RoomWidget(const QString& roomId, QWidget *parent)
     : QWidget{parent},
@@ -17,7 +19,7 @@ RoomWidget::RoomWidget(const QString& roomId, QWidget *parent)
 
     // api get room info
     m_liveApi->getLiveRoomInfo(m_roomId);
-    m_timer->start(kRequestInterval);
+    m_timer->start(kRequestIntervalRT);
 }
 
 bool RoomWidget::eventFilter(QObject *watched, QEvent *event)
@@ -102,6 +104,7 @@ void RoomWidget::setupUi()
     topLayout->addWidget(m_descriptionLabel);
 
     // danmaku list ui
+    m_danmakuList->setResizeMode(QListView::Adjust);
     m_danmakuList->setWordWrap(true);
 
     // style
@@ -184,8 +187,15 @@ QColor RoomWidget::getBeautifulHoverColor(const QColor &normal)
     return QColor(r, g, b);
 }
 
+bool RoomWidget::isAtBottom() const
+{
+    auto* scrollBar { m_danmakuList->verticalScrollBar() };
+    return scrollBar->value() == scrollBar->maximum();
+}
+
 void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
 {
+    const bool shouldScrollToBottom { isAtBottom() };
     for (const Danmaku& danmaku: danmakus) {
         if(m_receivedIds.size() > 10000) {  // about 320 KB
             m_receivedIds.clear();
@@ -197,15 +207,21 @@ void RoomWidget::onDanmakuReceived(const QList<Danmaku> &danmakus)
         // qDebug() << "[ " << m_livingStartTime.toString("yyyy-MM-dd hh:mm:ss") << ", " << danmaku.time.toString("yyyy-MM-dd hh:mm:ss") << " ]";
         m_receivedIds.insert(danmaku.id);  // danmaku id_str
 
-        QString item {
-            QString("[%1] %2: %3")
-                .arg(danmaku.time.toString("hh:mm:ss"),
-                    danmaku.nickname,
-                    danmaku.text)
-        };
+        // QString item {
+        //     QString("[%1] %2: %3")
+        //         .arg(danmaku.time.toString("hh:mm:ss"),
+        //             danmaku.nickname,
+        //             danmaku.text)
+        // };
 
-        m_danmakuList->addItem(item);
-        m_danmakuList->scrollToBottom();
+        auto item   { new QListWidgetItem(m_danmakuList) };
+        auto widget { new DanmakuItemWidget(danmaku) };
+
+        m_danmakuList->setItemWidget(item, widget);
+        item->setSizeHint(widget->sizeHint());       // absolutly need to set it!
+        if (shouldScrollToBottom) {
+            m_danmakuList->scrollToBottom();
+        }
     }
 }
 

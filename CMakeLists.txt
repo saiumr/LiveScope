@@ -22,6 +22,7 @@ qt_add_executable(LiveScope
     network/bilibiliuserapi.h network/bilibiliuserapi.cpp
     ${RESOURCES}
     network/bilibiliroominitapi.h network/bilibiliroominitapi.cpp
+    widget/danmakuitemwidget.h widget/danmakuitemwidget.cpp
 )
 
 target_include_directories(LiveScope

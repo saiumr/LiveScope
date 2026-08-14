@@ -16,7 +16,8 @@
 #include "network/bilibililiveapi.h"
 #include "network/bilibiliuserapi.h"
 
-const int kRequestInterval { 3000 };   // ms
+const int kRequestInterval   { 3000 };   // ms
+const int kRequestIntervalRT { 800 };    // ms
 
 class RoomWidget : public QWidget
 {
@@ -63,6 +64,7 @@ private:
     void setupConnections();
     void updateLabelStyle();
     QColor getBeautifulHoverColor(const QColor &normal);
+    bool isAtBottom() const;
 };
 
 #endif // ROOMWIDGET_H

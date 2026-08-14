@@ -65,11 +65,12 @@ Danmaku BilibiliDanmakuApi::parseDanmaku(const QJsonObject &object, const QStrin
     danmaku.roomId          = roomId;
     if (!isSc) {
         danmaku.id          = object["id_str"].toString();
+        danmaku.userLevel   = object["user_level"].toArray()[0].toInt();
         danmaku.isAdmin     = (object["isadmin"].toInt() == 1);
         danmaku.isSc        = false;
         danmaku.nickname    = object["nickname"].toString();
         danmaku.text        = object["text"].toString();
-        danmaku.uid         = object["uid"].toString();
+        danmaku.uid         = QString::number( static_cast<qlonglong>(object["uid"].toDouble()) );
         danmaku.time        = QDateTime::fromString(
             object["timeline"].toString(),
             "yyyy-MM-dd hh:mm:ss"
@@ -81,11 +82,12 @@ Danmaku BilibiliDanmakuApi::parseDanmaku(const QJsonObject &object, const QStrin
         danmaku.isAdmin     = false;  // todo: sc maybe admin
         danmaku.isSc        = true;
         danmaku.text        = object["message"].toString();
-        danmaku.uid         = object["uid"].toString();
+        danmaku.uid         = QString::number( static_cast<qlonglong>(object["uid"].toDouble()) );
         danmaku.time        =  QDateTime::fromSecsSinceEpoch(
                 object["ts"].toInteger(-1)
             );
         QJsonObject userInfo { object["user_info"].toObject() };
+        danmaku.userLevel   = userInfo["user_level"].toInt();
         danmaku.nickname    = userInfo["uname"].toString();
         danmaku.face_url    = userInfo["face"].toString();
     }
