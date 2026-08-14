@@ -26,6 +26,7 @@ public:
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
+    void changeEvent(QEvent *event) override;
 
 signals:
     void roomTitleChanged(const QString& title);
@@ -38,6 +39,9 @@ private slots:
 
 private:
     QString                m_roomId;
+    QString                m_uid;
+    QString                m_name;
+    QString                m_title;
     QDateTime              m_livingStartTime;
     BilibiliDanmakuApi*    m_danmakuApi;
     BilibiliLiveApi*       m_liveApi;
@@ -54,10 +58,11 @@ private:
     QNetworkAccessManager* m_imageManager;
     QLabel*                m_avatarLabel;
 
-
     void setupUi();
     void setupApi();
     void setupConnections();
+    void updateLabelStyle();
+    QColor getBeautifulHoverColor(const QColor &normal);
 };
 
 #endif // ROOMWIDGET_H
